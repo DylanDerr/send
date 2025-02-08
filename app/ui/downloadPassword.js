@@ -3,7 +3,9 @@ const html = require('choo/html');
 module.exports = function(state, emit) {
   const fileInfo = state.fileInfo;
   const invalid = fileInfo.password === null;
-
+  const downloadDescription =
+    state.WEB_UI.CUSTOM_DOWNLOAD_DESCRIPTION ||
+    state.translate('downloadDescription');
   const div = html`
     <div
       class="h-full w-full flex flex-col items-center justify-center bg-white py-8 max-w-md mx-auto dark:bg-grey-90"
@@ -14,7 +16,7 @@ module.exports = function(state, emit) {
       <p
         class="w-full mb-4 text-center text-grey-80 dark:text-grey-40 leading-normal"
       >
-        ${state.translate('downloadDescription')}
+        ${downloadDescription}
       </p>
       <form
         class="flex flex-row flex-nowrap w-full md:w-4/5"

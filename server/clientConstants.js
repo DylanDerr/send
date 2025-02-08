@@ -15,6 +15,11 @@ module.exports = {
     FOOTER_SOURCE_URL: config.footer_source_url,
     CUSTOM_FOOTER_TEXT: config.custom_footer_text,
     CUSTOM_FOOTER_URL: config.custom_footer_url,
+    CUSTOM_INTRO_TITLE: config.custom_intro_title,
+    CUSTOM_INTRO_DESCRIPTION: config.custom_intro_description,
+    CUSTOM_DOWNLOAD_DESCRIPTION: config.custom_download_description,
+    CUSTOM_TRY_SEND_DESCRIPTION: config.custom_try_send_description,
+    CUSTOM_SEND_YOUR_FILES_LINK: config.custom_send_your_files_link,
     COLORS: {
       PRIMARY: config.ui_color_primary,
       ACCENT: config.ui_color_accent

@@ -3,7 +3,14 @@ const assets = require('../../common/assets');
 const modal = require('./modal');
 
 module.exports = function(state, emit) {
-  const btnText = state.user.loggedIn ? 'okButton' : 'sendYourFilesLink';
+  const btnText = state.WEB_UI.CUSTOM_SEND_YOUR_FILES_LINK
+    ? state.WEB_UI.CUSTOM_SEND_YOUR_FILES_LINK
+    : state.user.loggedIn
+    ? 'okButton'
+    : 'sendYourFilesLink';
+  const trySendDescription =
+    state.WEB_UI.CUSTOM_TRY_SEND_DESCRIPTION ||
+    state.translate('trySendDescription');
   return html`
     <main class="main">
       ${state.modal && modal(state, emit)}
@@ -22,11 +29,13 @@ module.exports = function(state, emit) {
             ? 'hidden'
             : ''}"
         >
-          ${state.translate('trySendDescription')}
+          ${trySendDescription}
         </p>
         <p class="my-5">
           <a href="/" class="btn rounded-lg flex items-center" role="button"
-            >${state.translate(btnText)}</a
+            >${state.WEB_UI.CUSTOM_SEND_YOUR_FILES_LINK
+              ? btnText
+              : state.translate(btnText)}</a
           >
         </p>
       </section>

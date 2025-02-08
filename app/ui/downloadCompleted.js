@@ -2,7 +2,14 @@ const html = require('choo/html');
 const assets = require('../../common/assets');
 
 module.exports = function(state) {
-  const btnText = state.user.loggedIn ? 'okButton' : 'sendYourFilesLink';
+  const btnText = state.WEB_UI.CUSTOM_SEND_YOUR_FILES_LINK
+    ? state.WEB_UI.CUSTOM_SEND_YOUR_FILES_LINK
+    : state.user.loggedIn
+    ? 'okButton'
+    : 'sendYourFilesLink';
+  const trySendDescription =
+    state.WEB_UI.CUSTOM_TRY_SEND_DESCRIPTION ||
+    state.translate('trySendDescription');
   return html`
     <div
       id="download-complete"
@@ -20,11 +27,13 @@ module.exports = function(state) {
           ? 'hidden'
           : ''}"
       >
-        ${state.translate('trySendDescription')}
+        ${trySendDescription}
       </p>
       <p class="my-5">
         <a href="/" class="btn rounded-lg flex items-center mt-4" role="button"
-          >${state.translate(btnText)}</a
+          >${state.WEB_UI.CUSTOM_SEND_YOUR_FILES_LINK
+            ? btnText
+            : state.translate(btnText)}</a
         >
       </p>
     </div>

@@ -175,8 +175,34 @@ const conf = convict({
   },
   custom_description: {
     format: String,
-    default: 'Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever.',
+    default:
+      'Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever.',
     env: 'CUSTOM_DESCRIPTION'
+  },
+  custom_intro_title: {
+    format: String,
+    default: '',
+    env: 'CUSTOM_INTRO_TITLE'
+  },
+  custom_intro_description: {
+    format: String,
+    default: '',
+    env: 'CUSTOM_INTRO_DESCRIPTION'
+  },
+  custom_download_description: {
+    format: String,
+    default: '',
+    env: 'CUSTOM_DOWNLOAD_DESCRIPTION'
+  },
+  custom_try_send_description: {
+    format: String,
+    default: '',
+    env: 'CUSTOM_TRY_SEND_DESCRIPTION'
+  },
+  custom_send_your_files_link: {
+    format: String,
+    default: '',
+    env: 'CUSTOM_SEND_YOUR_FILES_LINK'
   },
   detect_base_url: {
     format: Boolean,

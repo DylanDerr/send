@@ -34,6 +34,9 @@ function preview(state, emit) {
   if (!state.capabilities.streamDownload && state.fileInfo.size > BIG_SIZE) {
     return noStreams(state, emit);
   }
+  const downloadDescription =
+    state.WEB_UI.CUSTOM_DOWNLOAD_DESCRIPTION ||
+    state.translate('downloadDescription');
   return html`
     <div
       class="flex flex-col w-full max-w-md h-full mx-auto items-center justify-center"
@@ -44,7 +47,7 @@ function preview(state, emit) {
       <p
         class="w-full text-grey-80 text-center leading-normal dark:text-grey-40"
       >
-        ${state.translate('downloadDescription')}
+        ${downloadDescription}
       </p>
       ${archiveTile.preview(state, emit)}
     </div>
